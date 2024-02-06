@@ -9,7 +9,7 @@
 -- Ejercicio 3: Seleccionar los usuarios mayores de 30 años.
 -- Tu respuesta aquí
     select * from usuarios_lenguajes where edad > 30;
-
+    select nombre, edad from usuarios_lenguajes where edad>30;
 -- Ejercicio 4: Contar cuántos usuarios saben JavaScript.
 -- Tu respuesta aquí
     select count(*) from usuarios_lenguajes where lenguaje ='javascript';
@@ -32,7 +32,7 @@
 
 -- Ejercicio 9: Seleccionar los usuarios que no saben ningún lenguaje.
 -- Tu respuesta aquí
-    select * from usuarios_lenguajes where lenguaje is null
+    select * from usuarios_lenguajes where lenguaje = '';
 
 -- Ejercicio 10: Encontrar el nombre y edad del usuario más joven.
 -- Tu respuesta aquí
@@ -41,7 +41,7 @@
 -- Ejercicio 11: Seleccionar los usuarios y sus edades ordenados por edad de forma descendente.
 -- Tu respuesta aquí
     select nombre, edad from usuarios_lenguajes order by edad desc;
-
+    
 -- Ejercicio 12: Contar cuántos usuarios tienen más de 28 años.
 -- Tu respuesta aquí
     select count(*) from usuarios_lenguajes where edad > 28
@@ -96,7 +96,7 @@
 
 -- Ejercicio 25: Seleccionar los usuarios que tienen exactamente la misma edad.
 -- Tu respuesta aquí
-   
+   SELECT edad, GROUP_CONCAT(nombre,' ', apellido) AS usuarios_con_la_misma_edad FROM usuarios_lenguajes GROUP BY edad HAVING COUNT(id_usuario) > 1;
 
 -- Ejercicio 26: Encontrar el usuario con el lenguaje con mayor número de carácteres y que tenga una edad menor de 30 años. 
 -- Tu respuesta aquí
